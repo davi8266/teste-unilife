@@ -20,7 +20,7 @@
 
   <!-- CARD -->
   <form class="card card-login" method="post" action="">
-    {% csrf_token %}  <!-- ✅ mantenha só isso; remova o input hidden com token fixo -->
+    {% csrf_token %}
 
     <h2 class="title">Bem-vindo(a)</h2>
     <p class="subtitle">Faça login para acessar o painel da academia</p>
@@ -72,17 +72,6 @@
           .replace(/(\d{3})(\d)/,'$1.$2')
           .replace(/(\d{3})(\d{1,2})$/,'$1-$2');
       }
-    });
-
-    // mostrar/ocultar senha
-    document.addEventListener("click", (e) => {
-      const btn = e.target.closest(".toggle-password");
-      if (!btn) return;
-      const input = document.getElementById(btn.dataset.target);
-      const show = input.type === "password";
-      input.type = show ? "text" : "password";
-      btn.textContent = show ? "🙈" : "👁️";
-      btn.setAttribute("aria-pressed", String(show));
     });
   </script>
 </body>
