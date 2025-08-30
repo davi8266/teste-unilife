@@ -4,15 +4,17 @@
 :root {
     --bg: #0f172a;
     --text: #e5e7eb;
-    --muted: #9ca3af;
+    --muted: #8091a9;
     --border: #1f2937;
     --card: #101827;
     --card-alt: #0e1424;
     --card-border: #1f2937;
-    --field: #0a1222;
+    --card-outline:#1b2940;
+    --field:#0b1424;
     --focus: #334155;
-    --accent: #22c55e;
-    --accent-d: #16a34a;
+    --accent: #1fe27e;
+    --accent-d: #13c56a;
+    --shadow: 0 20px 60px rgb(0 0 0 / 55%), 0 2px 0 rgba(255, 255, 255, 0.02) inset;
 }
 
 /* Reset */
@@ -61,7 +63,7 @@ header {
 }
 
 .card {
-    border: 1px solid var(--border);
+    border:1px solid var(--card-outline);
     background: var(--card);
     border-radius: 14px;
     padding: 18px;
@@ -69,6 +71,24 @@ header {
 
 .card h3 {
     margin-top: 0;
+}
+
+.field{
+  width:100%;
+  height:46px;
+  padding:0 14px;
+  border-radius:10px;
+  border:1px solid var(--field-border);
+  background:var(--field);
+  color:var(--text);
+  outline:none;
+  font-size:15px;
+  transition:border-color .15s ease, box-shadow .15s ease;
+}
+.field::placeholder{ color:#6f7e95; }
+.field:focus{
+  border-color:var(--focus);
+  box-shadow:0 0 0 3px rgba(32,218,131,.15);
 }
 
 /* ===========================
@@ -91,18 +111,13 @@ a.logout {
 }
 
 .btn {
-    margin-top: 15px;
-    width: 100%;
-    padding: 10px 12px;
-    border-radius: 10px;
-    border: 1px solid #14532d;
-    font-weight: 700;
-    font-size: .95rem;
-    cursor: pointer;
-    transition: transform .06s ease, filter .2s ease;
-    background: linear-gradient(180deg, var(--accent), var(--accent-d));
-    color: #0b121f;
-    box-shadow: 0 0px 24px rgba(31,226,126,.35);
+    width:100%; height:52px;
+  border:0; border-radius:12px;
+  background:linear-gradient(90deg, var(--accent), var(--accent-d));
+  color:#00140a; font-weight:700; font-size:16px;
+  box-shadow: 0 8px 24px rgba(31,226,126,.35);
+  cursor:pointer;
+  transition: transform .04s ease, filter .15s ease;
 }
 
 .btn:hover {
@@ -166,15 +181,15 @@ a.link:hover {
 
 .title {
     margin: 0 0 6px;
-    font-size: 1.4rem;
-    text-align: center;
+    font-size: 26px;
+    font-weight:700;
 }
 
 .subtitle {
     margin: 0 0 18px;
     color: var(--muted);
-    font-size: .9rem;
-    text-align: center;
+    font-size: 14px;
+    
 }
 
 /* ===========================
@@ -278,7 +293,7 @@ textarea {
 }
 
 .logo-img {
-    max-width: 140px;
+    max-width: 260px;
     height: auto;
     display: inline-block;
 }
