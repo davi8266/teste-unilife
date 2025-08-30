@@ -94,22 +94,14 @@ a.logout {
 .btn {
     margin-top: 15px;
     width: 100%;
-    padding: 10px 12px;
-    border-radius: 10px;
-    border: 1px solid #14532d;
-    font-weight: 700;
-    font-size: .95rem;
-    cursor: pointer;
-    transition: transform .06s ease, filter .2s ease;
-    background: linear-gradient(180deg, var(--accent), var(--accent-d));
-    color: #0b121f;
+    border:0; border-radius:12px;
+    background:linear-gradient(90deg, var(--btn-from), var(--btn-to));
+    color:#00140a; font-weight:700; font-size:16px;
     box-shadow: 0 8px 24px rgba(31,226,126,.35);
+    cursor:pointer;
+    transition: transform .04s ease, filter .15s ease;
 }
-
-.btn:hover {
-    filter: brightness(1.03);
-    transform: translateY(-1px);
-}
+.btn:active{ transform: translateY(1px); filter:brightness(.96); }
 
 /* ===========================
    🔑 LOGIN / REGISTRO / AUTH
