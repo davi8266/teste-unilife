@@ -13,12 +13,8 @@ SECRET_KEY = 'django-insecure-ylw)ixz8wy6uinylae4*bsma@e9x(*4(s$1vnw_@qsmi)113g9
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [
-    "192.168.1.156", "localhost", "127.0.0.1", "raspberrypi.local", ".trycloudflare.com", ]
-
+ALLOWED_HOSTS = ["192.168.1.156","localhost","127.0.0.1","raspberrypi.local",".trycloudflare.com"]
 CSRF_TRUSTED_ORIGINS = ["https://*.trycloudflare.com"]
-
-
 SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 
 # pode manter True; se ainda não setar cookie, teste False TEMPORARIAMENTE
@@ -115,10 +111,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
-STATIC_URL = 'static/'
-STATICFILES_DIRS = (
-    BASE_DIR / 'base_static',
-)
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [ BASE_DIR / 'base_static' ]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
