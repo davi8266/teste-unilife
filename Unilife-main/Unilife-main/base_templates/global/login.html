@@ -20,6 +20,7 @@
 
   <!-- CARD -->
   <form class="card card-login" method="post" action="">
+    {% csrf_token %}
     <input type="hidden" name="csrfmiddlewaretoken" value="xqphMvEs5wbB2Q9dKNBSGTPgSiymWGRRTeTF5Y6lOxcXzwfYd8kNGT2BwhCCVZD4">
     <h2 class="title">Bem-vindo(a)</h2>
     <p class="subtitle">Faça login para acessar o painel da academia</p>
