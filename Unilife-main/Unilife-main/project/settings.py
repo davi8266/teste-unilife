@@ -13,8 +13,11 @@ SECRET_KEY = 'django-insecure-ylw)ixz8wy6uinylae4*bsma@e9x(*4(s$1vnw_@qsmi)113g9
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["192.168.1.156", "localhost", "127.0.0.1", "raspberrypi.local", "*"]
+ALLOWED_HOSTS = ["192.168.1.156", "localhost", "127.0.0.1", "raspberrypi.local", ".trycloudflare.com"]
 
+CSRF_TRUSTED_ORIGINS = ["https://*.trycloudflare.com"]
+
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 
 # Application definition
 
