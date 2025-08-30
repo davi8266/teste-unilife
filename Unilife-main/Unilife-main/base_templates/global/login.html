@@ -30,10 +30,18 @@
 
     <label for="id_password">Senha</label>
     <div class="input-password">
-      <!-- ✅ comece como password -->
       <input type="password" name="password" id="id_password" required placeholder="••••••••" autocomplete="current-password">
-      <button type="button" class="toggle-password" data-target="id_password" aria-label="Mostrar senha" aria-pressed="false">👁️</button>
-    </div>
+        <button type="button"
+            class="toggle-password"
+            data-target="id_password"
+            data-open="{% static 'global/img/olho-aberto.png' %}"
+            data-closed="{% static 'global/img/olho-fechado.png' %}"
+            aria-label="Mostrar senha"
+            aria-pressed="false"
+            style="position:absolute; right:8px; top:50%; transform:translateY(-50%); background:none; border:0; padding:4px; cursor:pointer;">
+    <img src="{% static 'global/img/olho-fechado.png' %}" alt="" width="22" height="22" draggable="false" style="pointer-events:none;">
+    </button>
+  </div>
 
     <div class="row row-links">
       <span>Esqueceu a senha? <a href="/senha/" class="muted link">Recuperar</a></span>
