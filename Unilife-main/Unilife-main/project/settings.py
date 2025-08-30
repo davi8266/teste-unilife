@@ -17,13 +17,10 @@ ALLOWED_HOSTS = [
     "192.168.1.156", "localhost", "127.0.0.1", "raspberrypi.local",
     ".trycloudflare.com",
 ]
-
-
 CSRF_TRUSTED_ORIGINS = ["https://*.trycloudflare.com"]
-
-
 SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 
+# pode manter True; se ainda não setar cookie, teste False TEMPORARIAMENTE
 CSRF_COOKIE_SECURE = True
 SESSION_COOKIE_SECURE = True
 
