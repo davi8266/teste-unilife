@@ -82,7 +82,8 @@ a.btn {
     border-radius: 10px;
     text-decoration: none;
     font-weight: 700;
-    border: 1px solid #14532d;
+    border: 1px solid #32e078;
+    box-shadow: 0 8px 24px rgba(31,226,126,.35);
 }
 
 a.logout {
