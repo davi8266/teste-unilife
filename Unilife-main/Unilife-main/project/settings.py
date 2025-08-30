@@ -18,8 +18,8 @@ CSRF_TRUSTED_ORIGINS = ["https://*.trycloudflare.com"]
 SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 
 # pode manter True; se ainda não setar cookie, teste False TEMPORARIAMENTE
-CSRF_COOKIE_SECURE = False
-SESSION_COOKIE_SECURE = False
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
 
 
 # Application definition
