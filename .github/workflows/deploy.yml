@@ -1,0 +1,22 @@
+name: Deploy on Raspberry (self-hosted)
+
+on:
+  push:
+    branches: [ "main" ]   # se sua branch padrão não for main, troque aqui
+  workflow_dispatch:        # habilita o botão "Run workflow"
+
+jobs:
+  deploy:
+    runs-on: [self-hosted, Linux, ARM64]   # manda para o runner do seu Pi
+    steps:
+      - name: Pull & restart site
+        run: |
+          set -e
+          cd /home/dawid/app/Unilife-main/Unilife-main
+          git fetch --all
+          git reset --hard origin/main
+          . .venv/bin/activate
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          python manage.py migrate --noinput
+          python manage.py collectstatic --noinput || true
+          sudo systemctl restart django-runserver
