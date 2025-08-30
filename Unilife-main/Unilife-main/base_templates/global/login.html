@@ -29,19 +29,31 @@
     <input type="text" name="username" id="id_username" placeholder="000.000.000-00" required>
 
     <label for="id_password">Senha</label>
-    <div class="input-password">
-      <input type="password" name="password" id="id_password" required placeholder="••••••••" autocomplete="current-password">
-        <button type="button"
-            class="toggle-password"
-            data-target="id_password"
-            data-open="{% static 'global/img/olho-aberto.png' %}"
-            data-closed="{% static 'global/img/olho-fechado.png' %}"
-            aria-label="Mostrar senha"
-            aria-pressed="false"
-            style="position:absolute; right:8px; top:50%; transform:translateY(-50%); background:none; border:0; padding:4px; cursor:pointer;">
-    <img src="{% static 'global/img/olho-fechado.png' %}" alt="" width="22" height="22" draggable="false" style="pointer-events:none;">
-    </button>
-  </div>
+    
+    {% load static %}
+
+  <div class="input-password" style="position:relative;">
+    <input type="password" name="password" id="id_password" required
+         placeholder="••••••••" autocomplete="current-password"
+         style="padding-right:40px;">
+  
+    <button type="button"
+          aria-label="Mostrar senha"
+          style="position:absolute; right:8px; top:50%; transform:translateY(-50%);
+                 background:none; border:0; padding:4px; cursor:pointer;"
+          data-open="{% static 'global/img/olho-aberto.png' %}"
+          data-closed="{% static 'global/img/olho-fechado.png' %}"
+          onclick="
+            const input = document.getElementById('id_password');
+            const img   = this.querySelector('img');
+            const mostrar = (input.type === 'password');
+            input.type = mostrar ? 'text' : 'password';
+            img.src    = mostrar ? this.dataset.open : this.dataset.closed;
+            this.setAttribute('aria-label', mostrar ? 'Ocultar senha' : 'Mostrar senha');
+          ">
+        <img src="{% static 'global/img/olho-fechado.png' %}" alt="" width="22" height="22" draggable="false" style="pointer-events:none;">
+      </button>
+    </div>
 
     <div class="row row-links">
       <span>Esqueceu a senha? <a href="/senha/" class="muted link">Recuperar</a></span>
