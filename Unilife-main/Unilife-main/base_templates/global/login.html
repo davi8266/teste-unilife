@@ -1,84 +1,70 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="pt-br"><head>
+<html lang="pt-br">
+<head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Login | Unilife</title>
+  <!-- deixe só a linha com {% static %} -->
   <link rel="stylesheet" href="{% static 'global/css/style.css' %}">
-  <link rel="stylesheet" href="/static/global/css/style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 
 <body class="login-page">
 
   <!-- LOGO -->
   <div class="logo-container">
-    <img src="/static/global/img/logo-unilife.png" alt="Unilife" class="logo-img">
+    <img src="{% static 'global/img/logo-unilife.png' %}" alt="Unilife" class="logo-img">
   </div>
 
   <!-- CARD -->
   <form class="card card-login" method="post" action="">
-    {% csrf_token %}
-    <input type="hidden" name="csrfmiddlewaretoken" value="xqphMvEs5wbB2Q9dKNBSGTPgSiymWGRRTeTF5Y6lOxcXzwfYd8kNGT2BwhCCVZD4">
+    {% csrf_token %}  <!-- ✅ mantenha só isso; remova o input hidden com token fixo -->
+
     <h2 class="title">Bem-vindo(a)</h2>
     <p class="subtitle">Faça login para acessar o painel da academia</p>
 
-    
-
     <label for="id_username">CPF</label>
-    <input type="text" name="username" id="id_username" placeholder="000.000.000-00" required="">
+    <input type="text" name="username" id="id_username" placeholder="000.000.000-00" required>
 
     <label for="id_password">Senha</label>
     <div class="input-password">
-      <input type="text" name="password" id="id_password" required="" placeholder="••••••••" autocomplete="current-password">
-      <button type="button" class="toggle-password" data-target="id_password">🙈</button>
+      <!-- ✅ comece como password -->
+      <input type="password" name="password" id="id_password" required placeholder="••••••••" autocomplete="current-password">
+      <button type="button" class="toggle-password" data-target="id_password" aria-label="Mostrar senha" aria-pressed="false">👁️</button>
     </div>
 
-
     <div class="row row-links">
-    <span>Esqueceu a senha? <a href="/senha/" class="muted link">Recuperar</a>
-        </span>
+      <span>Esqueceu a senha? <a href="/senha/" class="muted link">Recuperar</a></span>
       <a href="/registrar/" class="link">Cadastrar-se</a>
     </div>
 
     <button class="btn" type="submit">Entrar</button>
   </form>
 
-  <!-- Máscara CPF -->
   <script>
-    function mascaraCPF(valor) {
-      return valor.replace(/\D/g, '')
-        .replace(/(\d{3})(\d)/, '$1.$2')
-        .replace(/(\d{3})(\d)/, '$1.$2')
-        .replace(/(\d{3})(\d{1,2})$/, '$1-$2')
-        .substring(0, 14);
-    }
-    document.addEventListener("DOMContentLoaded", function () {
-      const cpfInput = document.getElementById("id_username");
-      if (cpfInput) cpfInput.addEventListener("input", e => e.target.value = mascaraCPF(e.target.value));
+    // máscara de CPF
+    document.addEventListener("input", (e) => {
+      if (e.target.id === "id_username") {
+        e.target.value = e.target.value.replace(/\D/g,'').slice(0,11)
+          .replace(/(\d{3})(\d)/,'$1.$2')
+          .replace(/(\d{3})(\d)/,'$1.$2')
+          .replace(/(\d{3})(\d{1,2})$/,'$1-$2');
+      }
     });
-    document.addEventListener("DOMContentLoaded", () => {
-      document.querySelectorAll(".toggle-password").forEach(btn => {
-        btn.addEventListener("click", () => {
-          const input = document.getElementById(btn.dataset.target);
-          if (input.type === "password") {
-            input.type = "text";
-            btn.textContent = "🙈"; // ícone quando visível
-          } else {
-            input.type = "password";
-            btn.textContent = "closed-eye.png"; // ícone quando escondido
-          }
-        });
-      });
+
+    // mostrar/ocultar senha
+    document.addEventListener("click", (e) => {
+      const btn = e.target.closest(".toggle-password");
+      if (!btn) return;
+      const input = document.getElementById(btn.dataset.target);
+      const show = input.type === "password";
+      input.type = show ? "text" : "password";
+      btn.textContent = show ? "🙈" : "👁️";
+      btn.setAttribute("aria-pressed", String(show));
     });
   </script>
-
-
-
-
-  
-
 </body>
 </html>
