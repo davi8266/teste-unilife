@@ -2,11 +2,12 @@ name: Deploy on Raspberry (self-hosted)
 
 on:
   push:
-    branches: [ "main" ]   # troque se usar outro branch
+    branches: [ "main" ]   # troque se seu branch for outro
+  workflow_dispatch:        # permite rodar manualmente no botão "Run workflow"
 
 jobs:
   deploy:
-    runs-on: self-hosted
+    runs-on: [self-hosted, Linux, ARM64]   # envia para o seu runner do Pi
     steps:
       - name: Pull & restart site
         run: |
