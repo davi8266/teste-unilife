@@ -314,22 +314,6 @@ textarea {
 }
 
 /* Ellipse/blur de fundo */
-.bg-blob{
-  position: fixed;                  /* fica “grudado” na tela */
-  top: var(--y, 20%);               /* posição vertical */
-  left: var(--x, 80%);              /* posição horizontal */
-  transform: translate(-50%, -50%); /* centraliza no ponto x/y */
-  width: var(--w, 370px);
-  height: var(--h, 280px);
-  background: var(--color, #D9D9D9);
-  opacity: var(--opacity, 0.12);
-  filter: blur(var(--blur, 93px));
-  border-radius: 999px;
-  pointer-events: none;             /* não intercepta cliques */
-  z-index: 0;                       /* atrás do conteúdo */
-}
-
-.bg-blob{ top: 0%; left: 3%; }
 
 .bg-blob1{
   position: fixed;                  /* fica “grudado” na tela */
@@ -347,3 +331,20 @@ textarea {
 }
 
 .bg-blob1{ top: 110%; left: 50%; }
+
+.bg-blob{
+  position: fixed;                  /* fica “grudado” na tela */
+  top: var(--y, 20%);               /* posição vertical */
+  left: var(--x, 80%);              /* posição horizontal */
+  transform: translate(-50%, -50%); /* centraliza no ponto x/y */
+  width: var(--w, 370px);
+  height: var(--h, 280px);
+  background: var(--color, #D9D9D9);
+  opacity: var(--opacity, 0.12);
+  filter: blur(var(--blur, 93px));
+  border-radius: 999px;
+  pointer-events: none;             /* não intercepta cliques */
+  z-index: 0;                       /* atrás do conteúdo */
+}
+
+.bg-blob{ top: 0%; left: 3%; }
