@@ -3,43 +3,44 @@
 <html lang="pt-br">
 
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Login | Unilife</title>
-  <link rel="stylesheet" href="{% static 'global/css/style.css' %}">
+  <link rel="stylesheet" href="/static/global/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
 </head>
 
 <body class="login-page">
 
   <!-- LOGO -->
   <div class="logo-container">
-    <img src="{% static 'global/img/logo-unilife.png' %}" alt="Unilife" class="logo-img">
+    <img src="/static/global/img/logo-unilife.png" alt="Unilife" class="logo-img">
   </div>
 
   <!-- CARD -->
   <form class="card card-login" method="post" action="">
-    {% csrf_token %}
+    <input type="hidden" name="csrfmiddlewaretoken" value="xqphMvEs5wbB2Q9dKNBSGTPgSiymWGRRTeTF5Y6lOxcXzwfYd8kNGT2BwhCCVZD4">
     <h2 class="title">Bem-vindo(a)</h2>
     <p class="subtitle">Faça login para acessar o painel da academia</p>
 
-    {% if form and form.errors %}
-    <div class="error">CPF ou senha inválidos.</div>
-    {% endif %}
+    
 
     <label for="id_username">CPF</label>
-    <input type="text" name="username" id="id_username" placeholder="000.000.000-00" required />
+    <input type="text" name="username" id="id_username" placeholder="000.000.000-00" required="">
 
     <label for="id_password">Senha</label>
     <div class="input-password">
-      <input type="password" name="password" id="id_password" required placeholder="••••••••"
-        autocomplete="current-password" />
-      <button type="button" class="toggle-password" data-target="id_password">👁</button>
+      <input type="text" name="password" id="id_password" required="" placeholder="••••••••" autocomplete="current-password">
+      <button type="button" class="toggle-password" data-target="id_password">🙈</button>
     </div>
 
 
     <div class="row row-links">
-      <a href="{% url 'recuperar-senha' %}" class="muted link">Recuperar senha</a>
-      <a href="{% url 'registrar' %}" class="link">Cadastrar-se</a>
+    <span>Esqueceu a senha? <a href="/senha/" class="muted link">Recuperar</a>
+        </span>
+      <a href="/registrar/" class="link">Cadastrar-se</a>
     </div>
 
     <button class="btn" type="submit">Entrar</button>
@@ -73,6 +74,9 @@
       });
     });
   </script>
-</body>
 
+
+
+</body>
+  
 </html>
