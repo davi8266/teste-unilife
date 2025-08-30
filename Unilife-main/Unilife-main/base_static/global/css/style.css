@@ -102,7 +102,7 @@ a.logout {
     transition: transform .06s ease, filter .2s ease;
     background: linear-gradient(180deg, var(--accent), var(--accent-d));
     color: #0b121f;
-    box-shadow: 0 0px 7px rgba(31,226,126,.35);
+    box-shadow: 0 8px 24px rgba(31,226,126,.35);
 }
 
 .btn:hover {
