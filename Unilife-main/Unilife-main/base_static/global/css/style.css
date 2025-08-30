@@ -332,7 +332,7 @@ textarea {
   z-index: 0;                       /* atrás do conteúdo */
 }
 
-.bg-blob1{ top: 110%; left: 50%; }
+.bg-blob1{ top: 120%; left: 50%; }
 
 .bg-blob{
   position: fixed;                  /* fica “grudado” na tela */
