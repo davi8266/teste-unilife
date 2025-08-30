@@ -1,3 +1,5 @@
+testetestest
+
 # 🏋️ Sistema de Academia — UNILIFE
 
 Um sistema web desenvolvido em **Django** para gerenciamento de academias, permitindo o cadastro de **Alunos**, **Personais** e **Proprietário**, com acesso diferenciado de acordo com o tipo de usuário.
