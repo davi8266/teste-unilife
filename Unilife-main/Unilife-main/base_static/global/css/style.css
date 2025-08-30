@@ -162,12 +162,12 @@ body.auth-page {
 a.link {
     color: #25d886;
     text-decoration: none;
-    font-size: 15px;
+    font-size: 13px;
 }
 
 a.link:hover {
     text-decoration: underline;
-    font-size: 15px;
+    font-size: 13px;
 }
 
 .card{
