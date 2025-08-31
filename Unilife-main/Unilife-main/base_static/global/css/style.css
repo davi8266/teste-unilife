@@ -301,6 +301,12 @@ textarea {
     display: inline-block;
 }
 
+.logo-img1 {
+    max-width: 200px;
+    height: auto;
+    display: inline-block;
+}
+
 /* ===========================
    📱 RESPONSIVO
    =========================== */
@@ -456,10 +462,10 @@ textarea {
 /* ===== Sidebar do app (esquerda) ===== */
 /* sidebar fixa na esquerda */
 .app-sidenav{
-  position: fixed;
-  top: 64px;                 /* altura do seu header */
-  left: 0;
-  width: 220px;
+  position: absolute;
+  top: 115px;                 /* altura do seu header */
+  left: 0px;
+  width: 200px;
   height: calc(100% - 64px); /* ocupa o resto da tela */
   background: var(--card-alt);
   border-right: 1px solid var(--card-outline);
