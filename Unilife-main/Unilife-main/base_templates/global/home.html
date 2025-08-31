@@ -20,12 +20,25 @@
     </nav>
   </header>
 
+<div class="layout">
+  <!-- LATERAL -->
+  <aside class="app-sidenav" aria-label="Menu do aluno">
+    <div class="sidenav-title">Menu</div>
+    <nav>
+      <a href="#inicio" class="sidenav-link active">Início</a>
+      <a href="#treinos" class="sidenav-link">Planos de treino</a>
+      <a href="#agenda" class="sidenav-link">Agenda</a>
+      <a href="#anamnese" class="sidenav-link">Anamnese</a>
+    </nav>
+  </aside>
+
+  <!-- CONTEÚDO -->
   <main class="container">
     <h1>Olá, {{ request.user.first_name|default:request.user.username }}!</h1>
     <p class="muted">Este é seu painel do aluno.</p>
 
     <!-- CARDS DO TOPO -->
-    <section class="cards">
+    <section id="inicio" class="cards">
       <div class="card glass">
         <h3>Seu plano</h3>
         <p>Plano: <strong>Básico</strong> • Vencimento: <strong>10/09/2025</strong></p>
@@ -46,7 +59,7 @@
     </section>
 
     <!-- RESUMO -->
-    <section id="inicio" class="section">
+    <section class="section">
       <h2 class="section-title">Resumo</h2>
       <div class="grid-2">
         <div class="card">
@@ -140,5 +153,6 @@
 
     <p class="muted" style="margin-top:18px;">© 2025 Unilife Academia — Alunos</p>
   </main>
+</div>
 </body>
 </html>
