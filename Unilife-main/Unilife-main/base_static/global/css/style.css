@@ -522,3 +522,5 @@ textarea {
   }
   .sidenav-link{ white-space: nowrap; }
 }
+
+[data-view][hidden] { display: none !important; }
