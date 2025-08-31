@@ -1,20 +1,20 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="pt-br">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+<html lang="pt-br"><head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Painel | Academia</title>
-  <link rel="stylesheet" href="{% static 'global/css/style.css' %}">
+  <link rel="stylesheet" href="/static/global/css/style.css">
 </head>
 <body>
   <header>
-    <img src="/static/global/img/logo-unilife.png" alt="Unilife" class="logo-img">
+    <img src="/static/global/img/logo-unilife.png" alt="Unilife" class="logo-img1">
     <nav class="sidebar">
-      <form method="post" action="{% url 'logout' %}">
-        {% csrf_token %}
-        <button type="submit" style="background:none;border:none;color:#f97316;cursor:pointer;font-size: 18px;">
+      <form method="post" action="/logout/">
+        <input type="hidden" name="csrfmiddlewaretoken" value="PmljlFO7tGv3q75RZHZkKSjWMoFXGahU2GUuxfRd75ozWis7SmjY66Gy0zQHzirP">
+        <button type="submit" style="background: #1fe27e;border: 5px solid #14532d; border-radius: 10px; color: #080808;cursor:pointer;font-size: 18px;">
           Sair
+        <a class="btn" href="#">Sair</a>
         </button>
       </form>
     </nav>
@@ -34,8 +34,8 @@
 
   <!-- CONTEÚDO -->
   <main class="container">
-    <h1>Olá, {{ request.user.first_name|default:request.user.username }}!</h1>
-    <p class="muted">Este é seu painel do aluno.</p>
+    <h1>Olá, Dawid!</h1>
+    <p class="muted">***Colocar tipo do aluno</p>
 
     <!-- CARDS DO TOPO -->
     <section id="inicio" class="cards">
@@ -81,7 +81,7 @@
     <section id="treinos" class="section">
       <h2 class="section-title">Planos de treino</h2>
       <div class="card">
-        <details open>
+        <details open="">
           <summary><b>Treino A</b> — Peito/Tríceps</summary>
           <table class="table">
             <thead><tr><th>Exercício</th><th>Séries</th><th>Reps</th><th>Descanso</th></tr></thead>
@@ -151,8 +151,9 @@
       </div>
     </section>
 
-    <p class="muted" style="margin-top:18px;">© 2025 Unilife Academia — Alunos</p>
+    <p class="muted" style="margin-top:18px;">© 2025 Unilife</p>
   </main>
 </div>
-</body>
-</html>
+
+
+</body></html>
