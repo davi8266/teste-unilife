@@ -170,7 +170,8 @@ a.link:hover {
     font-size: 13px;
 }
 
-.card{
+.login-page .card,
+.auth-page .card{
   width:min(92vw, 520px);
   background:linear-gradient(180deg, rgba(19,30,51,.92), rgba(13,22,38,.92));
   border:1px solid var(--card-outline);
@@ -548,3 +549,29 @@ textarea {
 #treinos .table {
   margin-top: 8px;       /* espaço entre o summary e a tabela */
 }
+
+/* cards do painel (dashboard) ocupam toda a largura disponível */
+.content .card,
+.container .card{
+  width: auto;
+  max-width: none;
+  background: var(--card);
+  border:1px solid var(--card-outline);
+  border-radius:14px;
+  padding:18px;
+  box-shadow: var(--shadow);
+}
+
+/* separação clara entre cada bloco <details> em Planos de treino */
+section#treinos .card{
+  display:flex;
+  flex-direction:column;
+  gap:20px;
+}
+section#treinos details{
+  padding:12px 0;
+  border-bottom:1px solid var(--card-border);
+}
+section#treinos details:last-child{ border-bottom:0; }
+section#treinos summary{ cursor:pointer; font-weight:600; margin-bottom:8px; }
+section#treinos .table{ margin-top:10px; }
