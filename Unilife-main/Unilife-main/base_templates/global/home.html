@@ -67,15 +67,15 @@
 
 <div class="layout">
   <!-- LATERAL -->
-  <aside class="app-sidenav" aria-label="Menu do aluno">
-    <div class="sidenav-title">Menu</div>
-    <nav>
-      <a href="#inicio" class="sidenav-link active">Início</a>
-      <a href="#treinos" class="sidenav-link">Planos de treino</a>
-      <a href="#agenda" class="sidenav-link">Agenda</a>
-      <a href="#anamnese" class="sidenav-link">Anamnese</a>
-    </nav>
-  </aside>
+  <aside class="app-sidenav">
+  <div class="sidenav-title">Menu</div>
+  <nav>
+    <a class="sidenav-link active" data-target="inicio"   href="#inicio">Início</a>
+    <a class="sidenav-link"         data-target="treinos" href="#treinos">Planos de treino</a>
+    <a class="sidenav-link"         data-target="agenda"  href="#agenda">Agenda</a>
+    <a class="sidenav-link"         data-target="anamnese" href="#anamnese">Anamnese</a>
+  </nav>
+</aside>
 
   <!-- CONTEÚDO -->
   <main class="container">
@@ -101,16 +101,16 @@
 ">
         <h3>Próximo treino</h3>
         <p>Seg • 19:00 — Treino A (Peito/Tríceps)</p>
-        <a class="btn" href="#agenda">Ver agenda</a>
-      </div>
+        <a class="btn" data-go="agenda" href="#agenda">Ver agenda</a>
+  </div>
 
       <div class="card glass" style="
     width: 324px;
 ">
         <h3>Avaliação física</h3>
         <p>Agende sua anamnese e avaliação com um instrutor.</p>
-        <a class="btn" href="#anamnese">Agendar</a>
-      </div>
+        <a class="btn" data-go="anamnese" href="#anamnese">Agendar</a>
+  </div>
     </section>
 
     <!-- RESUMO -->
