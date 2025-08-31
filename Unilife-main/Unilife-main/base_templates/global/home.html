@@ -10,11 +10,11 @@
   <header>
     <img src="/static/global/img/logo-unilife.png" alt="Unilife" class="logo-img1">
     <nav class="sidebar">
-      <form method="post" action="/logout/">
+      <form method="post" action="{% url 'logout' %}">
+        {% csrf_token %}
         <input type="hidden" name="csrfmiddlewaretoken" value="PmljlFO7tGv3q75RZHZkKSjWMoFXGahU2GUuxfRd75ozWis7SmjY66Gy0zQHzirP">
         <button type="submit" style="background: #1fe27e;border: 5px solid #14532d; border-radius: 10px; color: #080808;cursor:pointer;font-size: 18px;">
           Sair
-        <a class="btn" href="#">Sair</a>
         </button>
       </form>
     </nav>
