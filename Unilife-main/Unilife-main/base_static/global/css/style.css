@@ -516,3 +516,34 @@ textarea {
   }
   .sidenav-link{ white-space: nowrap; }
 }
+
+/* espaçamento entre blocos de treino */
+#treinos .card details {
+  margin-bottom: 18px;          /* espaço entre cada <details> */
+  padding: 10px 0;              /* espaço interno */
+  border-bottom: 1px solid var(--card-border);
+}
+
+#treinos .card details:last-child {
+  margin-bottom: 0;             /* remove espaço extra no último */
+  border-bottom: 0;
+}
+
+#treinos summary {
+  cursor: pointer;
+  padding: 6px 2px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+#treinos summary:hover {
+  color: var(--accent);
+}
+
+/* tabelas dentro dos treinos */
+#treinos .table {
+  margin-top: 12px;             /* respiro entre título e tabela */
+  margin-bottom: 6px;
+  border-radius: 8px;
+  overflow: hidden;
+}
