@@ -25,6 +25,12 @@
     <h2 class="title">Bem-vindo(a)</h2>
     <p class="subtitle">Faça login para acessar o painel da academia</p>
 
+
+    {% if form and form.errors %}
+    <div class="error">CPF ou senha inválidos.</div>
+    {% endif %}
+
+    
     <label for="id_username">CPF</label>
     <input type="text" name="username" id="id_username" placeholder="000.000.000-00" required>
 
