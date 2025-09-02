@@ -11,8 +11,7 @@
   <header>
     <img src="/static/global/img/logo-unilife.png" alt="Unilife" class="logo-img1">
     <nav class="sidebar">
-      <form method="post" action="/logout/">
-        <input type="hidden" name="csrfmiddlewaretoken" value="9hXPWscjIxThchJX89o1zKG2HoMmu62UVeRLkkhttLwLG4RWB0LwRgLDD1wgjFY2">
+      <form method="post" action="{%url "logout" %}">
         <button type="submit" style="background:none;border:none;color:#f97316;cursor:pointer;font-size: 18px;">
           Sair
         </button>
