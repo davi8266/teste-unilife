@@ -1,19 +1,18 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="pt-br">
-<head>
+<html lang="pt-br"><head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Painel | Academia</title>
-  <link rel="stylesheet" href="{% static 'global/css/style.css' %}">
+  <link rel="stylesheet" href="/static/global/css/style.css">
 </head>
 <body>
 
   <header>
-    <img src="{% static 'global/img/logo-unilife.png' %}" alt="Unilife" class="logo-img1">
+    <img src="/static/global/img/logo-unilife.png" alt="Unilife" class="logo-img1">
     <nav class="sidebar">
-      <form method="post" action="{% url 'logout' %}">
-        {% csrf_token %}
+      <form method="post" action="/logout/">
+        <input type="hidden" name="csrfmiddlewaretoken" value="lxMlsNgE41BjDu7Ga561CPgLmtnX0smFkBeVtLhxDtDR8QAWPVW5cfmJNGLK35S2">
         <button type="submit" style="background:none;border:none;color:#f97316;cursor:pointer;font-size: 18px;">
           Sair
         </button>
@@ -25,16 +24,16 @@
   <aside class="app-sidenav">
     <div class="sidenav-title">Menu</div>
     <nav>
-      <a class="sidenav-link active" data-target="inicio"   href="#inicio">Início</a>
-      <a class="sidenav-link"         data-target="treinos" href="#treinos">Planos de treino</a>
-      <a class="sidenav-link"         data-target="agenda"  href="#agenda">Agenda</a>
-      <a class="sidenav-link"         data-target="anamnese" href="#anamnese">Anamnese</a>
+      <a class="sidenav-link active" data-target="inicio" href="#inicio">Início</a>
+      <a class="sidenav-link" data-target="treinos" href="#treinos">Planos de treino</a>
+      <a class="sidenav-link" data-target="agenda" href="#agenda">Agenda</a>
+      <a class="sidenav-link" data-target="anamnese" href="#anamnese">Anamnese</a>
     </nav>
   </aside>
 
   <!-- CONTEÚDO -->
   <main class="content"><!-- note: usei .content pois temos sidebar fixa -->
-    <h1>Olá, {{ request.user.first_name|default:request.user.username }}!</h1>
+    <h1>Olá, Dawid!</h1>
     <p class="muted">***Colocar tipo do aluno</p>
 
     <!-- ========== VIEW: INÍCIO ========== -->
@@ -79,10 +78,10 @@
     </section>
 
     <!-- ========== VIEW: TREINOS ========== -->
-    <section id="treinos" data-view="treinos" class="section">
+    <section id="treinos" data-view="treinos" class="section" hidden="">
       <h2 class="section-title">Planos de treino</h2>
       <div class="card">
-        <details open>
+        <details open="">
           <summary><b>Treino A</b> — Peito/Tríceps</summary>
           <table class="table">
             <thead><tr><th>Exercício</th><th>Séries</th><th>Reps</th><th>Descanso</th></tr></thead>
@@ -109,7 +108,7 @@
     </section>
 
     <!-- ========== VIEW: AGENDA ========== -->
-    <section id="agenda" data-view="agenda" class="section">
+    <section id="agenda" data-view="agenda" class="section" hidden="">
       <h2 class="section-title">Agenda</h2>
       <div class="card">
         <table class="table compact">
@@ -124,35 +123,25 @@
     </section>
 
     <!-- ========== VIEW: ANAMNESE ========== -->
-    <section id="anamnese" data-view="anamnese" class="section">
+    <section id="anamnese" data-view="anamnese" class="section" hidden="">
       <h2 class="section-title">Anamnese</h2>
       <div class="card">
-        <p class="muted">Envie seus documentos e respostas do questionário físico.</p>
+        <p class="muted">Faça sua avaliação técnica agendando no Whatsapp</p>
         <form class="grid-2">
-          <div>
-            <label for="peso">Peso (kg)</label>
-            <input id="peso" class="field" type="number" placeholder="72">
-          </div>
-          <div>
-            <label for="altura">Altura (cm)</label>
-            <input id="altura" class="field" type="number" placeholder="175">
-          </div>
+          
+          
+          
+          
           <div class="span-2">
-            <label for="obs">Observações</label>
-            <textarea id="obs" class="field" rows="4" placeholder="Restrições, histórico, etc."></textarea>
-          </div>
-          <div class="span-2">
-            <label for="arquivo">Anexar PDF</label>
-            <input id="arquivo" class="field" type="file" accept="application/pdf">
-          </div>
-          <div class="span-2">
-            <button class="btn" type="button">Enviar</button>
+            <button class="btn" type="button" style="
+    margin-top: 15px;
+">Agendar no Whatsapp</button>
           </div>
         </form>
       </div>
     </section>
 
-    <p class="muted" style="margin-top:18px;">© 2025 Unilife</p>
+    <p class="muted">© 2025 Unilife</p>
   </main>
 
   <!-- ===== Script DEPOIS do HTML ===== -->
@@ -197,5 +186,7 @@
     // show('inicio');
   })();
   </script>
+
+
 </body>
 </html>
