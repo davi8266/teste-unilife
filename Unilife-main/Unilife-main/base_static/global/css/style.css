@@ -497,7 +497,7 @@ textarea {
   background: #0e1628;
 }
 .sidenav-link.active{
-  border-color: rgba(34,197,247,.35);
+  border-color: rgb(255 255 255 / 35%);
   background: rgba(34,197,247,.07);
 }
 
