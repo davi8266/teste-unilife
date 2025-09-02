@@ -524,3 +524,87 @@ textarea {
 }
 
 [data-view][hidden] { display: none !important; }
+
+
+/* ===========================
+   🔧 PATCH RESPONSIVO (append)
+   =========================== */
+
+/* 1) variáveis faltantes / ajustes sutis */
+:root{
+  /* você usa var(--field-border) mas não definiu — reaproveitei a de card */
+  --field-border: var(--card-border);
+}
+
+/* 2) correção de bug: no seu CSS está "row-gap:px" (valor inválido) */
+.form-grid{ row-gap: 12px; }     /* mantém seu grid, só corrige o gap */
+
+/* 3) sidebar no mobile: vira faixa rolável horizontal e ocupa menos espaço */
+@media (max-width: 980px){
+  .app-sidenav{
+    position: static;            /* tira absolute */
+    width: auto;
+    height: auto;
+    flex-direction: row;         /* horizontal */
+    gap: 8px;
+    padding: 10px 12px;
+    border-right: 0;
+    border-bottom: 1px solid var(--card-outline);
+    overflow-x: auto;            /* rolagem horizontal se precisar */
+    -webkit-overflow-scrolling: touch;
+  }
+  .sidenav-title{                /* economiza espaço no topo */
+    display: none;
+  }
+  .sidenav-link{
+    white-space: nowrap;         /* não quebra os itens do menu */
+    flex: 0 0 auto;              /* deixam de “espremer” */
+  }
+  .content{
+    margin-left: 0;              /* não empurra o conteúdo no mobile */
+    padding: 16px;               /* um pouco menos de padding */
+  }
+}
+
+/* 4) cards & grids: já estão bem — só deixo a grade do topo mais elástica em telas médias */
+@media (min-width: 720px) and (max-width: 979.98px){
+  .cards{
+    grid-template-columns: repeat(2, minmax(0,1fr)); /* 2 colunas entre 720 e 980 */
+  }
+}
+
+/* 5) tabelas responsivas: evitam “estourar” tela pequena */
+@media (max-width: 720px){
+  .table{
+    display: block;              /* permite overflow funcionar */
+    width: 100%;
+    overflow-x: auto;
+    white-space: nowrap;         /* cabeçalhos sem quebrar */
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* 6) header no mobile: compacta um pouco a área do topo */
+@media (max-width: 480px){
+  header{
+    padding: 8px 12px;
+  }
+  .logo-img1{
+    max-width: 120px;            /* evita logo grande demais */
+    height: auto;
+  }
+}
+
+/* 7) inputs/áreas no mobile: mesmo visual, menos “ar” lateral */
+@media (max-width: 480px){
+  .card{ padding: 22px; }
+  label{ margin: 10px 0 6px; }
+  .btn{ height: 50px; }
+}
+
+/* 8) acessibilidade de toque nos itens do menu (todas as larguras) */
+.sidenav-link{
+  min-height: 40px;              /* alvo mínimo confortável */
+  display: inline-flex;
+  align-items: center;
+}
